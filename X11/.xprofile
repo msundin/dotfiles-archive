@@ -1,0 +1,63 @@
+#!/bin/sh
+
+#
+# ~/.xinitrc
+#
+# Executed by startx (run your window manager from here)
+
+#xrandr --newmode "5120x2280"  1004.00  5120 5544 6104 7088  2280 2283 2293 2361 -hsync +vsync &
+#xrandr --addmode DP1 5120x2280 &
+#xrandr --addmode DP2 5120x2280 &
+#xrandr --output eDP1 --mode 3000x2000 --output DP1 --scale 2x2 --mode 5120x2280 --left-of eDP1 --output DP2 --scale 2x2 --mode 5120x2280 --left-of DP1 &
+
+cp -f ~/.XresourcesOrig ~/.Xresources
+
+multiScreen=$(xrandr | grep '^DP1 connected')
+if [ !$multiScreen ]; then
+#    cp -f ~/.XresourcesMulti ~/FEL
+    [[ -f ~/.Xresources ]] && xrdb -I$HOME ~/.Xresources
+else
+    cp -f ~/.XresourcesMulti ~/.Xresources
+    #cat ~/.XresourcesMulti > ~/.Xresources
+    [[ -f ~/.XresourcesMulti ]] && xrdb -I$HOME ~/.XresourcesMulti
+fi
+[[ -f ~/.Xresources ]] && xrdb -I$HOME ~/.Xresources
+
+xrandr --output eDP1 --mode 3000x2000 --output DP1 --mode 2560x1440 --left-of eDP1 --output DP2 --mode 2560x1440 --left-of DP1 &
+
+# load x settings
+#[[ -f ~/.Xresources ]] && xrdb -I$HOME ~/.Xresources
+
+# Set wallpaper
+#feh --bg-scale ~/.xmonad/wallpapers/stop-customizing-start-working.jpg
+
+# Use a better mouse pointer
+xsetroot -cursor_name left_ptr
+
+# Use the Swedish keyboard layout
+#setxkbmap -layout se
+
+# Use the CAPS-LOCK key as an additional control
+setxkbmap -option "ctrl:nocaps"
+
+# Enable X restart with CTRL-ALT-BACKSPACE
+setxkbmap -option terminate:ctrl_alt_bksp
+
+# Load xmodmap
+[ -f ~/.xmodmaprc ] && xmodmap ~/.xmodmaprc
+
+# Hide mouse cursor when idle.
+unclutter -idle 5 -noevents &
+
+# xsecurelock
+xset s 300 5
+xss-lock -n /usr/lib/xsecurelock/dimmer -l -- env XSECURELOCK_SAVER=saver_xscreensaver xsecurelock &
+
+# toggle between us and sv keyboard
+setxkbmap -layout us,se -option grp:alt_shift_toggle
+
+# Start the screensaver
+# xscreensaver -no-splash &
+
+# Start xbindkeys - a grabbing keys program for X.
+xbindkeys
