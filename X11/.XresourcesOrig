@@ -1,0 +1,16 @@
+!Xft.dpi: 109 
+!Xft.dpi: 260 
+!Xft.dpi: 160 
+Xft.dpi: 180 
+
+! mouse cursor
+! Xcursor.theme: xcursor-bluecurve
+Xcursor.size: 32
+
+! Applications without fontconfig support
+Xft.antialias: 1
+Xft.autohint: 0
+Xft.hinting: 1
+Xft.hintstyle: hintfull
+Xft.lcdfilter: lcddefault
+Xft.rgba: rgb
