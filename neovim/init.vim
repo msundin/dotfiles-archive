@@ -19,19 +19,10 @@ set expandtab
 set softtabstop=2
 " Indentation amount for < and > commands.
 set shiftwidth=2
-
-" Don't give completion messages like 'match 1 of 2'
-" or 'The only match'
+" Don't give completion messages like 'match 1 of 2' or 'The only match'
 set shortmess+=c
-
-" ============================================================================ "
-" ===                                UI                                    === "
-" ============================================================================ "
-
 " Enable true color support
-"
 set termguicolors
-
 " Set backups
 if has('persistent_undo')
   set undofile
@@ -60,15 +51,21 @@ set ignorecase
 " make only lower case search pattern case insensitive
 set smartcase
 
-" Manage plugins with vim-plug
+" ============================================================================ "
+" ===                      Managing plugins with Vim-Plug                  === "
+" ============================================================================ "
+
 call plug#begin('~/.config/nvim/plugged/')
 
+" Dracula colorscheme
 Plug 'dracula/vim', { 'as': 'dracula' }
+" Nord colorscheme
 Plug 'arcticicestudio/nord-vim'
 " Coc. Use release branch
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 call plug#end()
 
+" Enable Nord colorscheme
 colorscheme nord
 "colorscheme dracula
