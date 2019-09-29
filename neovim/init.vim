@@ -63,7 +63,7 @@ set smartcase
 " Manage plugins with vim-plug
 call plug#begin('~/.config/nvim/plugged/')
 
-"Plug 'dracula/vim', { 'as': 'dracula' }
+Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'arcticicestudio/nord-vim'
 " Coc. Use release branch
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -71,3 +71,4 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 call plug#end()
 
 colorscheme nord
+"colorscheme dracula
