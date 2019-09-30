@@ -126,6 +126,7 @@ Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'arcticicestudio/nord-vim'
 " Coc. Use release branch
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'jackguo380/vim-lsp-cxx-highlight'
 " Show Git branch in statusbar
 Plug 'tpope/vim-fugitive'
 " Vim Airline. Better status bar.
