@@ -1,3 +1,4 @@
+// Note: For Linux, not MacOS
 {
   "languageserver": {
     "ccls": {
