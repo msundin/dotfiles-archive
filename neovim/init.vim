@@ -1,7 +1,7 @@
 " Automatically install vim-plug       
 if has('unix')   
-    if empty(glob('~/.config/nvim/autoload/plug.vim'))
-        silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs
+    if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
+        silent !curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs
             \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
     endif
 endif 
