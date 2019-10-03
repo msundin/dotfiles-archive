@@ -6,8 +6,8 @@ if has('unix')
     endif
 endif 
 
-" Remap leader key to ,
-let g:mapleader=','
+" Remap leader key to space
+let g:mapleader="\<Space>"
 " Yank and paste with the system clipboard
 set clipboard=unnamed
 
