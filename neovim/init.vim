@@ -19,8 +19,6 @@ map <C-h> <C-W>h
 map <C-l> <C-W>l
 " Switch between the last two files
 nnoremap <leader><leader> <c-^>
-" Close the current buffer
-map <leader>bd :Bclose<cr>:tabclose<cr>gT
 " Close all the buffers
 map <leader>ba :bufdo bd<cr>
 map <leader>l :bnext<cr>
