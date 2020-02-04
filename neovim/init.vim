@@ -82,7 +82,7 @@ filetype indent on
 " Set to auto read when a file is changed from the outside
 set autoread
 " Don't redraw while executing macros (good performance config)
-set lazyredraw 
+set lazyredraw
 " Disable highlight when <leader><cr> is pressed
 map <silent> <leader><cr> :noh<cr>
 " Set backups
