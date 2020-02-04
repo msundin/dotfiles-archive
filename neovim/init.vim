@@ -1,10 +1,10 @@
-" Automatically install vim-plug       
-if has('unix')   
+" Automatically install vim-plug
+if has('unix')
     if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
         silent !curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs
             \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
     endif
-endif 
+endif
 
 " Remap leader key to space
 let g:mapleader="\<Space>"
@@ -19,6 +19,8 @@ map <C-h> <C-W>h
 map <C-l> <C-W>l
 " Switch between the last two files
 nnoremap <leader><leader> <c-^>
+" Close the current buffer
+map <leader>bd :Bclose<cr>:tabclose<cr>gT
 " Close all the buffers
 map <leader>ba :bufdo bd<cr>
 map <leader>l :bnext<cr>
@@ -27,8 +29,8 @@ map <leader>h :bprevious<cr>
 map <leader>tn :tabnew<cr>
 map <leader>to :tabonly<cr>
 map <leader>tc :tabclose<cr>
-map <leader>tm :tabmove 
-map <leader>t<leader> :tabnext 
+map <leader>tm :tabmove
+map <leader>t<leader> :tabnext
 " Tab Shortcuts
 nnoremap tk :tabfirst<CR>
 nnoremap tl :tabnext<CR>
@@ -46,7 +48,7 @@ au TabLeave * let g:lasttab = tabpagenr()
 map <leader>te :tabedit <c-r>=expand("%:p:h")<cr>/
 " Switch CWD to the directory of the open buffer
 map <leader>cd :cd %:p:h<cr>:pwd<cr>
-" Specify the behavior when switching between buffers 
+" Specify the behavior when switching between buffers
 try
   set switchbuf=useopen,usetab,newtab
   set stal=2
@@ -57,6 +59,9 @@ au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g
 " splits
 set splitbelow
 set splitright
+
+" vv to generate new vertical split
+nnoremap <silent> vv <C-w>v
 
 " === TAB/Space settings === "
 " Insert spaces when TAB is pressed.
@@ -106,7 +111,7 @@ set title
 " do incremental searching
 set incsearch
 " use case-insensitive searches
-set ignorecase          
+set ignorecase
 " make only lower case search pattern case insensitive
 set smartcase
 " ===
@@ -130,9 +135,9 @@ Plug 'tpope/vim-fugitive'
 " Vim Airline. Better status bar.
 Plug 'vim-airline/vim-airline'
 " show what is yanked
-Plug 'machakann/vim-highlightedyank' 
+Plug 'machakann/vim-highlightedyank'
 " Smarter line numbers
-Plug 'jeffkreeftmeijer/vim-numbertoggle'  
+Plug 'jeffkreeftmeijer/vim-numbertoggle'
 " file explorer
 Plug 'scrooloose/nerdtree'
 
@@ -153,6 +158,9 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-commentary'               " Comments stuff
 Plug 'airblade/vim-gitgutter'
 Plug 'junegunn/gv.vim',                   { 'on': 'GV' }
+" Icons
+Plug 'ryanoasis/vim-devicons'
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 
 call plug#end()
 
@@ -167,7 +175,7 @@ set number relativenumber
 " ===
 
 " === nerdtree === "
-map <C-n> :NERDTreeToggle<CR>
+map <leader>n :NERDTreeToggle<CR>
 nnoremap <leader>f :NERDTreeFind<CR>
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 let g:NERDTreeDirArrowExpandable = '▸'
@@ -305,10 +313,10 @@ nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 
 " Semantic navigation
 " "D" => first child declaration "L" => previous declaration "R" => next declaration "U" => parent declaration
-nn <silent><buffer> <C-l> :call CocLocations('ccls','$ccls/navigate',{'direction':'D'})<cr>
-nn <silent><buffer> <C-k> :call CocLocations('ccls','$ccls/navigate',{'direction':'L'})<cr>
-nn <silent><buffer> <C-j> :call CocLocations('ccls','$ccls/navigate',{'direction':'R'})<cr>
-nn <silent><buffer> <C-h> :call CocLocations('ccls','$ccls/navigate',{'direction':'U'})<cr>
+"nn <silent><buffer> <C-l> :call CocLocations('ccls','$ccls/navigate',{'direction':'D'})<cr>
+"nn <silent><buffer> <C-k> :call CocLocations('ccls','$ccls/navigate',{'direction':'L'})<cr>
+"nn <silent><buffer> <C-j> :call CocLocations('ccls','$ccls/navigate',{'direction':'R'})<cr>
+"nn <silent><buffer> <C-h> :call CocLocations('ccls','$ccls/navigate',{'direction':'U'})<cr>
 
 " Cross reference extensions
 " bases
