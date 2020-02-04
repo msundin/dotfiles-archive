@@ -350,3 +350,4 @@ nn xx x
 " Text documt highlight
 au CursorHold * sil call CocActionAsync('highlight')
 au CursorHoldI * sil call CocActionAsync('showSignatureHelp')
+" ===
