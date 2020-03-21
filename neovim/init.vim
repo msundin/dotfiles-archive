@@ -1,6 +1,6 @@
-### BEGIN - CHANGE DEPENDIN ON SYSTEM
-# let g:python3_host_prog = '/usr/local/bin/python3.8'
-### END - CHANGE DEPENDIN ON SYSTEM
+"### BEGIN - CHANGE DEPENDIN ON SYSTEM
+" let g:python3_host_prog = '/usr/local/bin/python3.8'
+"### END - CHANGE DEPENDIN ON SYSTEM
 
 " Automatically install vim-plug
 if has('unix')
