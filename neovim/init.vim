@@ -1,3 +1,7 @@
+### BEGIN - CHANGE DEPENDIN ON SYSTEM
+# let g:python3_host_prog = '/usr/local/bin/python3.8'
+### END - CHANGE DEPENDIN ON SYSTEM
+
 " Automatically install vim-plug
 if has('unix')
     if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
@@ -5,8 +9,6 @@ if has('unix')
             \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
     endif
 endif
-
-let g:python3_host_prog = '/usr/local/bin/python3.8'
 
 " Remap leader key to space
 let g:mapleader="\<Space>"
