@@ -1,6 +1,6 @@
-"### BEGIN - CHANGE DEPENDIN ON SYSTEM
+"### BEGIN - ENVIRONMENT SPECIFIC
 " let g:python3_host_prog = '/usr/local/bin/python3.8'
-"### END - CHANGE DEPENDIN ON SYSTEM
+"### END - ENVIRONMENT SPECIFIC
 
 " Automatically install vim-plug
 if has('unix')
@@ -24,34 +24,29 @@ map <C-l> <C-W>l
 " Switch between the last two files
 nnoremap <leader><leader> <c-^>
 " Close the current buffer
-map <leader>bd :Bclose<cr>:tabclose<cr>gT
+map <leader>bd :bd<cr>:tabclose<cr>gT
 " Close all the buffers
 map <leader>ba :bufdo bd<cr>
 map <leader>l :bnext<cr>
 map <leader>h :bprevious<cr>
 " Useful mappings for managing tabs
-map <leader>tn :tabnew<cr>
-map <leader>to :tabonly<cr>
-map <leader>tc :tabclose<cr>
-map <leader>tm :tabmove
-map <leader>t<leader> :tabnext
-" Tab Shortcuts
 nnoremap tk :tabfirst<CR>
 nnoremap tl :tabnext<CR>
 nnoremap th :tabprev<CR>
 nnoremap tj :tablast<CR>
 nnoremap tn :tabnew<CR>
-nnoremap tc :CtrlSpaceTabLabel<CR>
-nnoremap td :tabclose<CR>
-" Let 'tl' toggle between this and the last accessed tab
+nnoremap to :tabonly<CR>
+nnoremap tm :tabmove
+nnoremap tc :tabclose<CR>
+" Let 'tt' toggle between this and the last accessed tab
 let g:lasttab = 1
-nmap <Leader>tl :exe "tabn ".g:lasttab<CR>
+nmap tt :exe "tabn ".g:lasttab<CR>
 au TabLeave * let g:lasttab = tabpagenr()
 " Opens a new tab with the current buffer's path
 " Super useful when editing files in the same directory
-map <leader>te :tabedit <c-r>=expand("%:p:h")<cr>/
+map te :tabedit <c-r>=expand("%:p:h")<cr>/
 " Switch CWD to the directory of the open buffer
-map <leader>cd :cd %:p:h<cr>:pwd<cr>
+map cd :cd %:p:h<cr>:pwd<cr>
 " Specify the behavior when switching between buffers
 try
   set switchbuf=useopen,usetab,newtab
@@ -77,9 +72,13 @@ set shiftwidth=4
 " ===
 
 " Enable true color support
-set termguicolors
+if exists('+termguicolors')
+  let &t_8f="\<Esc>[38;2;%lu;%lu;%lum"
+  let &t_8b="\<Esc>[48;2;%lu;%lu;%lum"
+  set termguicolors
+endif
 " Sets how many lines of history VIM has to remember
-set history=500
+set history=1000
 " Enable filetype plugins
 filetype plugin on
 filetype indent on
@@ -135,9 +134,10 @@ Plug 'arcticicestudio/nord-vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'jackguo380/vim-lsp-cxx-highlight'
 " Show Git branch in statusbar
-" Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-fugitive'
 " Vim Airline. Better status bar.
 Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 " show what is yanked
 Plug 'machakann/vim-highlightedyank'
 " Smarter line numbers
@@ -152,14 +152,17 @@ Plug 'scrooloose/nerdtree'
 ""Plug 'junegunn/fzf',                      { 'dir': '~/.fzf', 'do': './install --all' }
 ""Plug 'junegunn/fzf.vim'
 Plug 'christoomey/vim-tmux-navigator'
+" Distraction free vim (:Goyo)
 Plug 'junegunn/goyo.vim'
 Plug 'edkolev/tmuxline.vim'               " Make the Tmux bar match Vim
-Plug 'ryanoasis/vim-webdevicons'
-Plug 'jlanzarotta/bufexplorer'
+" Plug 'ryanoasis/vim-webdevicons'
+""Plug 'jlanzarotta/bufexplorer'
 Plug 'amix/open_file_under_cursor.vim'
 Plug 'tpope/vim-surround'                 " Change word surroundings
 Plug 'tpope/vim-repeat'
+" (gcc)
 Plug 'tpope/vim-commentary'               " Comments stuff
+" Shows git changes in left column
 Plug 'airblade/vim-gitgutter'
 Plug 'junegunn/gv.vim',                   { 'on': 'GV' }
 " Icons
@@ -177,6 +180,8 @@ call plug#end()
 colorscheme nord
 "colorscheme dracula
 " ===
+
+let g:airline_powerline_fonts = 1
 
 " === numbertoggle === "
 set number relativenumber
@@ -196,7 +201,7 @@ set hidden
 " Don't give completion messages like 'match 1 of 2' or 'The only match'
 set shortmess+=c
 " Better display for messages
-set cmdheight=2
+set cmdheight=1
 " Don't give completion messages like 'match 1 of 2' or 'The only match'
 set shortmess+=c
 " You will have bad experience for diagnostic messages when it's default 4000.
@@ -321,37 +326,37 @@ nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 
 " Semantic navigation
 " "D" => first child declaration "L" => previous declaration "R" => next declaration "U" => parent declaration
-"nn <silent><buffer> <C-l> :call CocLocations('ccls','$ccls/navigate',{'direction':'D'})<cr>
-"nn <silent><buffer> <C-k> :call CocLocations('ccls','$ccls/navigate',{'direction':'L'})<cr>
-"nn <silent><buffer> <C-j> :call CocLocations('ccls','$ccls/navigate',{'direction':'R'})<cr>
-"nn <silent><buffer> <C-h> :call CocLocations('ccls','$ccls/navigate',{'direction':'U'})<cr>
+nn <silent><buffer> ml :call CocLocations('ccls','$ccls/navigate',{'direction':'D'})<cr>
+nn <silent><buffer> mk :call CocLocations('ccls','$ccls/navigate',{'direction':'L'})<cr>
+nn <silent><buffer> mj :call CocLocations('ccls','$ccls/navigate',{'direction':'R'})<cr>
+nn <silent><buffer> mh :call CocLocations('ccls','$ccls/navigate',{'direction':'U'})<cr>
 
 "" Cross reference extensions
 "" bases
-"nn <silent> xb :call CocLocations('ccls','$ccls/inheritance')<cr>
+nn <silent> mb :call CocLocations('ccls','$ccls/inheritance')<cr>
 "" bases of up to 3 levels
-"nn <silent> xb :call CocLocations('ccls','$ccls/inheritance',{'levels':3})<cr>
+nn <silent> mB :call CocLocations('ccls','$ccls/inheritance',{'levels':3})<cr>
 "" derived
-"nn <silent> xd :call CocLocations('ccls','$ccls/inheritance',{'derived':v:true})<cr>
+nn <silent> md :call CocLocations('ccls','$ccls/inheritance',{'derived':v:true})<cr>
 "" derived of up to 3 levels
-"nn <silent> xD :call CocLocations('ccls','$ccls/inheritance',{'derived':v:true,'levels':3})<cr>
+nn <silent> mD :call CocLocations('ccls','$ccls/inheritance',{'derived':v:true,'levels':3})<cr>
 "
 "" caller
-"nn <silent> xc :call CocLocations('ccls','$ccls/call')<cr>
+nn <silent> mc :call CocLocations('ccls','$ccls/call')<cr>
 "" callee
-"nn <silent> xC :call CocLocations('ccls','$ccls/call',{'callee':v:true})<cr>
+nn <silent> mC :call CocLocations('ccls','$ccls/call',{'callee':v:true})<cr>
 "
 "" $ccls/member
 "" member variables / variables in a namespace
-"nn <silent> xm :call CocLocations('ccls','$ccls/member')<cr>
+nn <silent> mm :call CocLocations('ccls','$ccls/member')<cr>
 "" member functions / functions in a namespace
-"nn <silent> xf :call CocLocations('ccls','$ccls/member',{'kind':3})<cr>
+nn <silent> mf :call CocLocations('ccls','$ccls/member',{'kind':3})<cr>
 "" nested classes / types in a namespace
-"nn <silent> xs :call CocLocations('ccls','$ccls/member',{'kind':2})<cr>
+nn <silent> ms :call CocLocations('ccls','$ccls/member',{'kind':2})<cr>
 "
-"nmap <silent> xt <Plug>(coc-type-definition)<cr>
-"nn <silent> xv :call CocLocations('ccls','$ccls/vars')<cr>
-"nn <silent> xV :call CocLocations('ccls','$ccls/vars',{'kind':1})<cr>
+nmap <silent> mt <Plug>(coc-type-definition)<cr>
+nn <silent> mv :call CocLocations('ccls','$ccls/vars')<cr>
+nn <silent> mV :call CocLocations('ccls','$ccls/vars',{'kind':1})<cr>
 "
 "nn xx x
 
@@ -394,7 +399,7 @@ nnoremap <leader>j :<C-u>DeniteCursorWord grep:.<CR>
 "   <C-h>         - Open currently selected file in a horizontal split
 autocmd FileType denite-filter call s:denite_filter_my_settings()
 function! s:denite_filter_my_settings() abort
-  imap <silent><buffer> <C-o>
+  imap <silent><buffer> <C-j>
   \ <Plug>(denite_filter_quit)
   inoremap <silent><buffer><expr> <Esc>
   \ denite#do_map('quit')
