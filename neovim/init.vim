@@ -84,6 +84,8 @@ filetype plugin on
 filetype indent on
 " Set to auto read when a file is changed from the outside
 set autoread
+" Update after cursor is still for 4 seconds
+au CursorHold,CursorHoldI * checktime
 " Don't redraw while executing macros (good performance config)
 set lazyredraw
 " Disable highlight when <leader><cr> is pressed
