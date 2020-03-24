@@ -72,11 +72,8 @@ set shiftwidth=4
 " ===
 
 " Enable true color support
-if exists('+termguicolors')
-  let &t_8f="\<Esc>[38;2;%lu;%lu;%lum"
-  let &t_8b="\<Esc>[48;2;%lu;%lu;%lum"
-  set termguicolors
-endif
+set termguicolors
+
 " Sets how many lines of history VIM has to remember
 set history=1000
 " Enable filetype plugins
