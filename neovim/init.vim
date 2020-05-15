@@ -1,5 +1,9 @@
 "### BEGIN - ENVIRONMENT SPECIFIC
-" let g:python3_host_prog = '/usr/local/bin/python3.8'
+" Enable true color support
+if !exists('$TMUX')
+  set termguicolors
+endif
+let g:python3_host_prog = '/usr/local/bin/python3.8'
 "### END - ENVIRONMENT SPECIFIC
 
 " Automatically install vim-plug
@@ -70,9 +74,6 @@ set softtabstop=4
 " Indentation amount for < and > commands.
 set shiftwidth=4
 " ===
-
-" Enable true color support
-set termguicolors
 
 " Sets how many lines of history VIM has to remember
 set history=1000
