@@ -1,0 +1,28 @@
+set relativenumber
+set ignorecase
+set smartcase
+set easymotion
+set surround
+set commentary
+
+set number
+" map ESC to jk
+inoremap jk <esc>
+vnoremap jk <esc>
+let mapleader = " "
+
+" These create newlines like o and O but stay in normal mode
+nmap zj o<Esc>k
+nmap zk O<Esc>j
+
+nmap <leader>l :action NextSplitter<cr>
+nmap <leader>h :action PrevSplitter<cr>
+nmap <leader>r :action Run<cr>
+nmap <leader>d :action GotoDeclaration<cr>
+nmap <leader>i :action GotoImplementation<cr>
+nmap <leader>u :action FindUsages<cr>
+nmap <leader>b :action Back<cr>
+nmap <leader>f :action Forward<cr>
+" nmap <leader>f :action GotoFile<cr>
+nmap <leader>t :action ExpressionTypeInfo<cr>
+nmap <leader>e :action Exit<cr>
