@@ -1,3 +1,5 @@
+" WRITE :actionlist TO GET LIST OF COMMANDS TO MAP IN ANDROID STUDIO
+
 set relativenumber
 set ignorecase
 set smartcase
