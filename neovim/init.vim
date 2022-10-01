@@ -371,8 +371,8 @@ nn <silent> mV :call CocLocations('ccls','$ccls/vars',{'kind':1})<cr>
 "nn xx x
 
 " Text documt highlight
-au CursorHold * sil call CocActionAsync('highlight')
-au CursorHoldI * sil call CocActionAsync('showSignatureHelp')
+" au CursorHold * sil call CocActionAsync('highlight')
+" au CursorHoldI * sil call CocActionAsync('showSignatureHelp')
 
 function! s:check_back_space() abort
   let col = col('.') - 1
