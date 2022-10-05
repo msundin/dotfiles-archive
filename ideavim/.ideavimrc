@@ -19,19 +19,19 @@ set idearefactormode=keep
 nmap zj o<Esc>k
 nmap zk O<Esc>j
 
-nmap <leader>n :action NextSplitter<cr>
-nmap <leader>p :action PrevSplitter<cr>
-nmap <leader>r :action Run<cr>
-nmap <leader>d :action GotoDeclaration<cr>
-nmap <leader>s :action GotoSuperMethod<cr>
-nmap <leader>i :action GotoImplementation<cr>
-nmap <leader>u :action FindUsages<cr>
-nmap <leader>h :action Back<cr>
-nmap <leader>l :action Forward<cr>
-nmap <leader>y :action PreviousTab<cr>
-nmap <leader>o :action NextTab<cr>
-nmap <leader>f :action SelectInProjectView<cr>
-nmap <leader>c :action RenameElement<cr>
-" nmap <leader>f :action GotoFile<cr>
-nmap <leader>t :action ExpressionTypeInfo<cr>
-nmap <leader>e :action Exit<cr>
+nmap <leader>n <action>(NextSplitter)
+nmap <leader>p <action>(PrevSplitter)
+nmap <leader>r <action>(Run)
+nmap <leader>d <action>(GotoDeclaration)
+nmap <leader>s <action>(GotoSuperMethod)
+nmap <leader>i <action>(GotoImplementation)
+nmap <leader>u <action>(FindUsages)
+nmap <leader>h <action>(Back)
+nmap <leader>l <action>(Forward)
+nmap <leader>y <action>(PreviousTab)
+nmap <leader>o <action>(NextTab)
+nmap <leader>f <action>(SelectInProjectView)
+nmap <leader>c <action>(RenameElement)
+" nmap <leader>f <action GotoFile)
+nmap <leader>t <action>(ExpressionTypeInfo)
+nmap <leader>e <action>(Exit)
