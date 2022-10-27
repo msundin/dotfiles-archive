@@ -1,5 +1,3 @@
-" WRITE :actionlist TO GET LIST OF COMMANDS TO MAP IN ANDROID STUDIO
-
 set relativenumber
 set ignorecase
 set smartcase
@@ -19,18 +17,21 @@ set idearefactormode=keep
 nmap zj o<Esc>k
 nmap zk O<Esc>j
 
-nmap <leader>n <action>(NextSplitter)
-nmap <leader>p <action>(PrevSplitter)
+nmap <leader>h <action>(NextSplitter)
+nmap <leader>l <action>(PrevSplitter)
 nmap <leader>r <action>(Run)
 nmap <leader>d <action>(GotoDeclaration)
 nmap <leader>s <action>(GotoSuperMethod)
 nmap <leader>i <action>(GotoImplementation)
 nmap <leader>u <action>(FindUsages)
-nmap <leader>h <action>(Back)
-nmap <leader>l <action>(Forward)
+nmap <leader>n <action>(Back)
+nmap <leader>. <action>(Forward)
 nmap <leader>y <action>(PreviousTab)
 nmap <leader>o <action>(NextTab)
 nmap <leader>f <action>(SelectInProjectView)
 nmap <leader>c <action>(RenameElement)
 nmap <leader>t <action>(ExpressionTypeInfo)
 nmap <leader>e <action>(GotoNextError)
+nmap <leader>a <action>(RearrangeCode)
+nmap <leader>j <action>(RecentFiles)
+nmap <leader>k <action>(GotoClass)
