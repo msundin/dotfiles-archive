@@ -1,0 +1,11 @@
+set mouseKeys.move.initialSpeed 100
+set mouseKeys.move.baseSpeed 1200
+set mouseKeys.move.initialAcceleration 1700
+set mouseKeys.move.deceleratedSpeed 200
+set mouseKeys.move.acceleratedSpeed 2000
+
+set mouseKeys.scroll.initialSpeed 20
+set mouseKeys.scroll.baseSpeed 20
+set mouseKeys.scroll.initialAcceleration 20
+set mouseKeys.scroll.deceleratedSpeed 10
+set mouseKeys.scroll.acceleratedSpeed 50
