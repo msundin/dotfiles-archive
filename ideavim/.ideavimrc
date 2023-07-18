@@ -1,3 +1,8 @@
+" DOCUMENTATION
+"" Source your .vimrc
+" source ~/.ideavimrc
+"" See all available commands
+" :actionlist
 set relativenumber
 set ignorecase
 set smartcase
@@ -10,15 +15,24 @@ set number
 inoremap jk <esc>
 vnoremap jk <esc>
 let mapleader = " "
-" Yank to clipboard
+" yank to clipboard
 set clipboard+=unnamed
 set idearefactormode=keep
-" These create newlines like o and O but stay in normal mode
+" these create newlines like o and O but stay in normal mode
 nmap zj o<Esc>k
 nmap zk O<Esc>j
 
-nmap <leader>y <action>(NextSplitter)
-nmap <leader>o <action>(PrevSplitter)
+comment
+nmap <leader>; <action>(QuickJavaDoc)
+nmap <leader>/ <action>(CommentByLineComment)
+nmap <leader>b <action>(Annotate)
+nmap <leader>p <action>(ShowSettings)
+"nmap <leader>x <action>(CloseGotItTooltip)
+"nmap <leader>x <action>(FocusEditor)
+nmap <leader>x <action>(PopupMenu-cancel)
+
+nmap <leader>. <action>(NextSplitter)
+nmap <leader>n <action>(PrevSplitter)
 nmap <leader>r <action>(Run)
 nmap <leader>d <action>(GotoDeclaration)
 nmap <leader>s <action>(GotoSuperMethod)
@@ -26,17 +40,15 @@ nmap <leader>i <action>(GotoImplementation)
 nmap <leader>u <action>(FindUsages)
 nmap <leader>h <action>(Back)
 nmap <leader>l <action>(Forward)
-nmap <leader>n <action>(PreviousTab)
-nmap <leader>. <action>(NextTab)
+nmap <leader>j <action>(PreviousTab)
+nmap <leader>k <action>(NextTab)
 nmap <leader>f <action>(SelectInProjectView)
 nmap <leader>c <action>(RenameElement)
 nmap <leader>t <action>(ExpressionTypeInfo)
 nmap <leader>e <action>(GotoNextError)
 nmap <leader>a <action>(ReformatCode)
-nmap <leader>j <action>(RecentFiles)
-nmap <leader>k <action>(GotoClass)
-"" Source your .vimrc
-"source ~/.vimrc
+nmap <leader>m <action>(RecentFiles)
+nmap <leader>, <action>(GotoClass)
 
 "" -- Suggested options --
 " Show a few lines of context around the cursor. Note that this makes the
