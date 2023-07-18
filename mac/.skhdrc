@@ -4,10 +4,10 @@ cmd - return : osascript /Users/msundin2/dev/scripts/new-iterm-window.scpt
 shift + cmd - q : yabai -m window --close
 
 # focus window
-cmd - h : yabai -m window --focus west
-cmd - j : yabai -m window --focus south
-cmd - k : yabai -m window --focus north
-cmd - l : yabai -m window --focus east
+cmd - h : yabai -m window --focus west || $(yabai -m display --focus west)
+cmd - j : yabai -m window --focus south || $(yabai -m display --focus south)
+cmd - k : yabai -m window --focus north || $(yabai -m display --focus north)
+cmd - l : yabai -m window --focus east || $(yabai -m display --focus east)
 # focus desktop
 cmd - 0 : yabai -m space --focus recent
 cmd - 1 : yabai -m space --focus 1
@@ -24,7 +24,13 @@ cmd - 9 : yabai -m space --focus 9
 shift + cmd - h : yabai -m window --swap west || $(yabai -m window --display west; yabai -m display --focus west) 
 shift + cmd - j : yabai -m window --swap south || $(yabai -m window --display south; yabai -m display --focus south) 
 shift + cmd - k : yabai -m window --swap north || $(yabai -m window --display north; yabai -m display --focus north) 
-shift + cmd - l : yabai -m window --swap east || $(yabai -m window --display east; yabai -m display --focus east) 
+shift + cmd - l : yabai -m window --swap east || $(yabai -m config window_placement first_child; yabai -m window --display east; yabai -m display --focus east; yabai -m config window_placement second_child) 
+
+# move focused window
+shift + alt - h : yabai -m window --warp west || $(yabai -m window --display west; yabai -m display --focus west) 
+shift + alt - j : yabai -m window --warp south || $(yabai -m window --display south; yabai -m display --focus south) 
+shift + alt - k : yabai -m window --warp north || $(yabai -m window --display north; yabai -m display --focus north) 
+shift + alt - l : yabai -m window --warp east || $(yabai -m config window_placement first_child; yabai -m window --display east; yabai -m display --focus east; yabai -m config window_placement second_child) 
 
 # send focused window to next/prev workspace
 shift + cmd - 0 : yabai -m window --space recent
