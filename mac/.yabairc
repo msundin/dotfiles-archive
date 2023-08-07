@@ -35,7 +35,7 @@ yabai -m config auto_balance off
 yabai -m config split_ratio 0.5
 
 # set mouse interaction modifier key (default: fn)
-yabai -m config mouse_modifier fn
+yabai -m config mouse_modifier alt
 
 # set modifier + left-click drag to move window (default: move)
 yabai -m config mouse_action1 move
@@ -94,6 +94,9 @@ yabai -m config normal_window_opacity 0.95
 #setup_space 8 misc
 #setup_space 9 misc
 #setup_space 0 keepass
+
+# Make non-resizeable windows floating
+yabai -m signal --add event=window_created action='yabai -m query --windows --window $YABAI_WINDOW_ID | jq -er ".\"can-resize\" or .\"is-floating\"" || yabai -m window $YABAI_WINDOW_ID --toggle float'
 
 # move some apps automatically to specific spaces
 yabai -m rule --add app="Slack$" space=4
