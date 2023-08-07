@@ -1,5 +1,7 @@
 # open new iTerm2 terminal
 cmd - return : osascript /Users/msundin2/dev/scripts/new-iterm-window.scpt
+# open new Brave window
+cmd - b : osascript /Users/msundin2/dev/scripts/new-brave-window.scpt
 # kill focused window
 shift + cmd - q : yabai -m window --close
 
@@ -9,8 +11,9 @@ cmd - j : yabai -m window --focus south || $(yabai -m display --focus south)
 cmd - k : yabai -m window --focus north || $(yabai -m display --focus north)
 cmd - l : yabai -m window --focus east || $(yabai -m display --focus east)
 # focus desktop
-cmd - 0 : yabai -m space --focus recent
+cmd - 0x1B : yabai -m space --focus recent
 cmd - 1 : yabai -m space --focus 1
+# Make it possible to write @ with right cmd
 lcmd - 2 : yabai -m space --focus 2
 cmd - 3 : yabai -m space --focus 3
 cmd - 4 : yabai -m space --focus 4
@@ -19,6 +22,7 @@ cmd - 6 : yabai -m space --focus 6
 cmd - 7 : yabai -m space --focus 7
 cmd - 8 : yabai -m space --focus 8
 cmd - 9 : yabai -m space --focus 9
+cmd - 0 : yabai -m space --focus 10
 
 # swap focused window
 shift + cmd - h : yabai -m window --swap west || $(yabai -m window --display west; yabai -m display --focus west) 
@@ -33,7 +37,7 @@ shift + cmd - k : yabai -m window --warp north || $(yabai -m window --display no
 shift + cmd - l : yabai -m window --warp east || $(yabai -m config window_placement first_child; yabai -m window --display east; yabai -m display --focus east; yabai -m config window_placement second_child) 
 
 # send focused window to next/prev workspace
-shift + cmd - 0 : yabai -m window --space recent
+shift + cmd - 0x1B : yabai -m window --space recent
 shift + cmd - 1 : yabai -m window --space 1
 shift + cmd - 2 : yabai -m window --space 2
 shift + cmd - 3 : yabai -m window --space 3
@@ -43,9 +47,10 @@ shift + cmd - 6 : yabai -m window --space 6
 shift + cmd - 7 : yabai -m window --space 7
 shift + cmd - 8 : yabai -m window --space 8
 shift + cmd - 9 : yabai -m window --space 9
+shift + cmd - 0 : yabai -m window --space 10
 
 # send focused to window and follow focus
-shift + alt - 0 : yabai -m window --space recent; yabai -m space --focus recent
+shift + alt - 0x1B : yabai -m window --space recent; yabai -m space --focus recent
 shift + alt - 1 : yabai -m window --space 1; yabai -m space --focus 1
 shift + alt - 2 : yabai -m window --space 2; yabai -m space --focus 2
 shift + alt - 3 : yabai -m window --space 3; yabai -m space --focus 3
@@ -55,6 +60,7 @@ shift + alt - 6 : yabai -m window --space 6; yabai -m space --focus 6
 shift + alt - 7 : yabai -m window --space 7; yabai -m space --focus 7
 shift + alt - 8 : yabai -m window --space 8; yabai -m space --focus 8
 shift + alt - 9 : yabai -m window --space 9; yabai -m space --focus 9
+shift + alt - 0 : yabai -m window --space 10; yabai -m space --focus 9
 
 # set insertion point in focused container
 alt + cmd - h : yabai -m window --insert west
@@ -63,7 +69,7 @@ alt + cmd - k : yabai -m window --insert north
 alt + cmd - l : yabai -m window --insert east
 
 # balance size of windows
-alt + cmd - 0 : yabai -m space --balance
+alt + cmd - 0x1B : yabai -m space --balance
 
 # make floating window fill screen
 alt + cmd - f : yabai -m window --grid 1:1:0:0:1:1
@@ -78,7 +84,7 @@ cmd - 0x2F : yabai -m window --resize left:20:0 || yabai -m window --resize righ
 cmd - m : yabai -m window --resize top:0:20 || yabai -m window --resize bottom:0:20
 
 # toggle window zoom
-shift + cmd - f : yabai -m window --toggle zoom-fullscreen
+shift + alt - f : yabai -m window --toggle zoom-fullscreen
 
 # toggle window split type
 shift + alt - s : yabai -m window --toggle split
