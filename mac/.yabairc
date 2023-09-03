@@ -96,7 +96,7 @@ yabai -m config normal_window_opacity 0.95
 #setup_space 0 keepass
 
 # Make non-resizeable windows floating
-yabai -m signal --add event=window_created action='yabai -m query --windows --window $YABAI_WINDOW_ID | jq -er ".\"can-resize\" or .\"is-floating\"" || yabai -m window $YABAI_WINDOW_ID --toggle float'
+# yabai -m signal --add event=window_created action='yabai -m query --windows --window $YABAI_WINDOW_ID | jq -er ".\"can-resize\" or .\"is-floating\"" || yabai -m window $YABAI_WINDOW_ID --toggle float'
 
 # move some apps automatically to specific spaces
 yabai -m rule --add app="Slack$" space=4
@@ -105,4 +105,5 @@ yabai -m rule --add app="Slack$" space=4
 yabai -m rule --add app="Studio$" space=2
 #yabai -m rule --add app="iTerm2$" space=3
 yabai -m rule --add app="KeePassXC$" space=6
+yabai -m rule --add app="Spotify$" space=6
 yabai -m rule --add app="Outlook$" space=4
