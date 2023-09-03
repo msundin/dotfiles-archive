@@ -1,9 +1,10 @@
 " DOCUMENTATION
 "" Source your .vimrc
-" source ~/.ideavimrc
+"source ~/.vimrc
 "" See all available commands
 " :actionlist
 set relativenumber
+set number
 set ignorecase
 set smartcase
 set easymotion
@@ -25,11 +26,18 @@ nmap zk O<Esc>j
 comment
 nmap <leader>; <action>(QuickJavaDoc)
 nmap <leader>/ <action>(CommentByLineComment)
-nmap <leader>b <action>(Annotate)
+vmap <leader>/ <action>(CommentByLineComment)
+" nmap <leader>lc <action>(ActivateLogcatToolWindow)
+vmap <leader>f <action>(ExtractFunction)
+nmap <leader>g <action>(Annotate)
+nmap <leader>b <action>(ToggleLineBreakpoint)
 nmap <leader>p <action>(ShowSettings)
+nmap <leader>q <action>(HideSideWindows)
 "nmap <leader>x <action>(CloseGotItTooltip)
 "nmap <leader>x <action>(FocusEditor)
-nmap <leader>x <action>(PopupMenu-cancel)
+"nmap <leader>x <action>(PopupMenu-cancel)
+"nmap <leader>x <action>(CloseActiveTab)
+nmap <leader>x <action>(CloseEditor)
 
 nmap <leader>. <action>(NextSplitter)
 nmap <leader>n <action>(PrevSplitter)
@@ -49,6 +57,8 @@ nmap <leader>e <action>(GotoNextError)
 nmap <leader>a <action>(ReformatCode)
 nmap <leader>m <action>(RecentFiles)
 nmap <leader>, <action>(GotoClass)
+nmap <leader>y <action>(CollapseRegion)
+nmap <leader>o <action>(ExpandRegion)
 
 "" -- Suggested options --
 " Show a few lines of context around the cursor. Note that this makes the
