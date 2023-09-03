@@ -1,6 +1,6 @@
 " DOCUMENTATION
 "" Source your .vimrc
-"source ~/.vimrc
+":source ~/.ideavimrc
 "" See all available commands
 " :actionlist
 set relativenumber
