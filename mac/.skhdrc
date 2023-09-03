@@ -70,7 +70,9 @@ alt - f : yabai -m window --toggle zoom-fullscreen
 # toggle window split type
 alt - s : yabai -m window --toggle split
 # balance size of windows
-alt - space : yabai -m space --balance
+alt - z : yabai -m space --balance
+# balance size of windows
+alt - space : skhd --key "escape"
 # tiling/untiling (float/unfloat) window and center on screen
 alt - t : yabai -m window --toggle float --grid 4:4:1:1:2:2
 # kill focused window
