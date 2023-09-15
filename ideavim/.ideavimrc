@@ -1,8 +1,9 @@
 " DOCUMENTATION
 "" Source your .vimrc
-":source ~/.ideavimrc
+" :source ~/.ideavimrc
 "" See all available commands
 " :actionlist
+
 set relativenumber
 set number
 set ignorecase
