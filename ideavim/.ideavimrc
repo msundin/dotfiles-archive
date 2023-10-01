@@ -4,6 +4,16 @@
 "" See all available commands
 " :actionlist
 
+set scrolloff=10
+set incsearch
+set hlsearch
+nnoremap <esc> :noh<return><esc>
+set linenumber
+set highlightedyank
+set showmode
+set showcmd
+set visualbell
+set clipboard+=unnamed
 set relativenumber
 set number
 set ignorecase
@@ -11,8 +21,17 @@ set smartcase
 set easymotion
 set surround
 set commentary
+set NERDTree
+set which-key
+set notimeout
 
-set number
+inoremap <C-j> <Action>(PopupMenu-selectNext)
+inoremap <C-k> <Action>(PopupMenu-selectPrev)
+let g:NERDTreeMapActivateNode='l'
+let g:NERDTreeMapJumpParent='h'
+vnoremap < <gv
+vnoremap > >gv
+
 " map ESC to jk
 inoremap jk <esc>
 vnoremap jk <esc>
@@ -24,22 +43,16 @@ set idearefactormode=keep
 nmap zj o<Esc>k
 nmap zk O<Esc>j
 
-comment
 nmap <leader>; <action>(QuickJavaDoc)
 nmap <leader>/ <action>(CommentByLineComment)
 vmap <leader>/ <action>(CommentByLineComment)
-" nmap <leader>lc <action>(ActivateLogcatToolWindow)
 vmap <leader>f <action>(ExtractFunction)
 nmap <leader>g <action>(Annotate)
 nmap <leader>b <action>(ToggleLineBreakpoint)
 nmap <leader>p <action>(ShowSettings)
-nmap <leader>q <action>(HideSideWindows)
-"nmap <leader>x <action>(CloseGotItTooltip)
-"nmap <leader>x <action>(FocusEditor)
-"nmap <leader>x <action>(PopupMenu-cancel)
-"nmap <leader>x <action>(CloseActiveTab)
+nmap <leader>a <action>(HideAllWindows)
+nmap <A-a> <action>(HideAllWindows)
 nmap <leader>x <action>(CloseEditor)
-
 nmap <leader>. <action>(NextSplitter)
 nmap <leader>n <action>(PrevSplitter)
 nmap <leader>r <action>(Run)
@@ -55,33 +68,19 @@ nmap <leader>f <action>(SelectInProjectView)
 nmap <leader>c <action>(RenameElement)
 nmap <leader>t <action>(ExpressionTypeInfo)
 nmap <leader>e <action>(GotoNextError)
-nmap <leader>a <action>(ReformatCode)
+nmap <leader>z <action>(ReformatCode)
 nmap <leader>m <action>(RecentFiles)
 nmap <leader>, <action>(GotoClass)
 nmap <leader>y <action>(CollapseRegion)
 nmap <leader>o <action>(ExpandRegion)
+nmap <leader>q <action>(GotoTest)
+nmap <leader>ws <action>(SplitHorizontally)
+nmap <leader>wv <action>(SplitVertically)
+nmap <leader>wd <action>(ToggleDistractionFreeMode)
+nmap <leader>wz <action>(ToggleZenMode)
+nmap <leader>ff <action>(ToggleFullScreen)
 
-"" -- Suggested options --
-" Show a few lines of context around the cursor. Note that this makes the
-" text scroll if you mouse-click near the start or end of the window.
-set scrolloff=5
+" Find more examples here:
+" https://www.cyberwizard.io/posts/the-ultimate-ideavim-setup/
+" https://jb.gg/share-ideavimrc
 
-" Do incremental searching.
-set incsearch
-
-" Don't use Ex mode, use Q for formatting.
-map Q gq
-
-
-"" -- Map IDE actions to IdeaVim -- https://jb.gg/abva4t
-"" Map \r to the Reformat Code action
-"map \r <Action>(ReformatCode)
-
-"" Map <leader>d to start debug
-"map <leader>d <Action>(Debug)
-
-"" Map \b to toggle the breakpoint on the current line
-"map \b <Action>(ToggleLineBreakpoint)
-
-
-" Find more examples here: https://jb.gg/share-ideavimrc
