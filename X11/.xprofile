@@ -12,7 +12,7 @@
 
 cp -f ~/.XresourcesOrig ~/.Xresources
 
-multiScreen=$(xrandr | grep '^DP1 connected')
+multiScreen=$(xrandr | grep '^DP2 connected')
 if [ !$multiScreen ]; then
 #    cp -f ~/.XresourcesMulti ~/FEL
     [[ -f ~/.Xresources ]] && xrdb -I$HOME ~/.Xresources
@@ -23,7 +23,14 @@ else
 fi
 [[ -f ~/.Xresources ]] && xrdb -I$HOME ~/.Xresources
 
-xrandr --output eDP1 --mode 3000x2000 --output DP1 --mode 2560x1440 --left-of eDP1 --output DP2 --mode 2560x1440 --left-of DP1 &
+if [ !$multiScreen ]; then
+# xrandr --output eDP1 --mode 3000x2000 --output DP2 --mode 2560x1440 --left-of eDP1 --output DP1 --mode 2560x1440 --left-of DP2 &
+xrandr --output eDP1 --mode 3000x2000 --output DP2 --mode 2560x1440 --left-of eDP1 --output DP1 --mode 2560x1440 --left-of DP2 &
+else
+xrandr --output eDP1 --mode 3000x2000 --scale 0.6x0.6 --output DP2 --mode 2560x1440 --left-of eDP1 --output DP1 --rotate left --mode 2560x1440 --left-of DP2
+xrandr --output DP2 --pos 1440x560
+xrandr --output eDP1 --pos 4000x560 &
+fi
 
 # load x settings
 #[[ -f ~/.Xresources ]] && xrdb -I$HOME ~/.Xresources
@@ -47,17 +54,24 @@ setxkbmap -option terminate:ctrl_alt_bksp
 [ -f ~/.xmodmaprc ] && xmodmap ~/.xmodmaprc
 
 # Hide mouse cursor when idle.
-unclutter -idle 5 -noevents &
+# unclutter -idle 5 -noevents &
 
 # xsecurelock
-xset s 300 5
-xss-lock -n /usr/lib/xsecurelock/dimmer -l -- env XSECURELOCK_SAVER=saver_xscreensaver xsecurelock &
+#xset s 10 
+#xss-lock -n /home/mattias/.config/i3/scripts/lock.sh
+#xss-lock -n /usr/lib/xsecurelock/dimmer -l -- env XSECURELOCK_SAVER=saver_xscreensaver xsecurelock &
+
+
 
 # toggle between us and sv keyboard
-setxkbmap -layout us,se -option grp:alt_shift_toggle
+setxkbmap -layout us,se -option grp:ctrl_space_toggle
+# setxkbmap -layout us,se -option grp:alt_shift_toggle
 
 # Start the screensaver
 # xscreensaver -no-splash &
 
 # Start xbindkeys - a grabbing keys program for X.
-xbindkeys
+xbindkeys &
+
+# Start nextcloud
+nextcloud &
