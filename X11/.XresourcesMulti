@@ -1,3 +1,5 @@
+! DPI of 2560x1440 27 inch monitors = 108.79
+!Xft.dpi: 108 
 Xft.dpi: 109 
 !Xft.dpi: 260 
 
