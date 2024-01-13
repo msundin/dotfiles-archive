@@ -14,5 +14,8 @@
          }
        }
     }
-  }
+  },
+  "coc.preferences.hoverTarget": "float",
+  "suggest.floatEnable": true,
+  "python.jediEnabled": false
 }
