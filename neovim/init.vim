@@ -17,7 +17,7 @@ endif
 " Remap leader key to space
 let g:mapleader="\<Space>"
 " Yank and paste with the system clipboard
-set clipboard=unnamed
+set clipboard=unnamedplus
 
 " === moving around, tabs, windows and buffers === "
 " Smart way to move between windows
@@ -515,3 +515,4 @@ endfunction
 call s:profile(s:denite_options)
 
 " ===
+
