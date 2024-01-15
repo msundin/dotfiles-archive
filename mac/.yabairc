@@ -20,10 +20,10 @@ yabai -m config layout bsp
 
 # Set all padding and gaps to 10pt (default: 0)
 yabai -m config top_padding    0
-yabai -m config bottom_padding 5
-yabai -m config left_padding   5
-yabai -m config right_padding  5
-yabai -m config window_gap     5
+yabai -m config bottom_padding 0
+yabai -m config left_padding   0
+yabai -m config right_padding  0
+yabai -m config window_gap     2
 
 # Override gaps for space 2 only
 # yabai -m config --space 2 window_gap 0
@@ -55,13 +55,15 @@ yabai -m config mouse_follows_focus on
 
 # modify window shadows (default: on, options: on, off, float)
 # example: show shadows only for floating windows
-yabai -m config window_shadow float
+yabai -m config window_shadow                on
+# New window spawns to the right if vertical split, or bottom if horizontal split
+yabai -m config window_placement second_child
 
 # window opacity (default: off)
 # example: render all unfocused windows with 90% opacity
-yabai -m config window_opacity on
+yabai -m config window_opacity off
 yabai -m config active_window_opacity 1.0
-yabai -m config normal_window_opacity 0.95
+yabai -m config normal_window_opacity 1.0
 
 #
 # setup spaces
@@ -99,11 +101,22 @@ yabai -m config normal_window_opacity 0.95
 # yabai -m signal --add event=window_created action='yabai -m query --windows --window $YABAI_WINDOW_ID | jq -er ".\"can-resize\" or .\"is-floating\"" || yabai -m window $YABAI_WINDOW_ID --toggle float'
 
 # move some apps automatically to specific spaces
-yabai -m rule --add app="Slack$" space=4
+yabai -m rule --add app="^Slack$" space=4
 #yabai -m rule --add app="Browser$" space=1
 ##yabai -m rule --add app="Android$" space=2
-yabai -m rule --add app="Studio$" space=2
+yabai -m rule --add app="Android Studio$" space=2
 #yabai -m rule --add app="iTerm2$" space=3
-yabai -m rule --add app="KeePassXC$" space=6
-yabai -m rule --add app="Spotify$" space=6
+yabai -m rule --add app="^Signal$" space=5
+yabai -m rule --add app="^KeePassXC$" space=6
+yabai -m rule --add app="^Spotify$" space=6
 yabai -m rule --add app="Outlook$" space=4
+
+# Floating
+yabai -m rule --add app="^Microsoft Teams" manage=off
+yabai -m rule --add app='^System Preferences$' manage=off
+yabai -m rule --add title='Preferences$' manage=off
+yabai -m rule --add app="^System Settings" manage=off
+yabai -m rule --add title='Settings$' manage=off
+yabai -m rule --add title="Nextcloud" manage=off
+
+echo "yabai configuration loaded.."
