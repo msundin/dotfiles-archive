@@ -1,0 +1,4 @@
+tell application "/Applications/Brave Browser.app"
+    make new window
+    activate
+end tell
