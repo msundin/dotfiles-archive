@@ -258,7 +258,10 @@ bar {
     status_command i3status
     mode hide
     height 30
+    font pango:DejaVu Sans, Awesome 10
     colors {
-      background #242424
+      background #2E3440
+      #background #242424
     }
 }
+
