@@ -19,8 +19,8 @@ set number
 set ignorecase
 set smartcase
 set easymotion
-set surround
-set commentary
+"set surround
+"set commentary
 set NERDTree
 set which-key
 set notimeout
@@ -43,11 +43,19 @@ set idearefactormode=keep
 nmap zj o<Esc>k
 nmap zk O<Esc>j
 
-nmap <leader>; <action>(QuickJavaDoc)
+
+nmap <leader>ff <action>(GotoFile)
+vmap <leader>ff <action>(GotoFile)
+nmap <leader>fw <action>(SearchEverywhere)
+vmap <leader>fw <action>(SearchEverywhere)
+nmap [d <action>(MethodUp)
+nmap ]d <action>(MethodDown)
+nmap <leader>K <action>(QuickJavaDoc)
+"nmap <leader>; <action>(QuickJavaDoc)
 nmap <leader>/ <action>(CommentByLineComment)
 vmap <leader>/ <action>(CommentByLineComment)
-vmap <leader>f <action>(ExtractFunction)
-nmap <leader>g <action>(Annotate)
+"vmap <leader>f <action>(ExtractFunction)
+nmap <leader>gb <action>(Annotate)
 nmap <leader>b <action>(ToggleLineBreakpoint)
 nmap <leader>p <action>(ShowSettings)
 nmap <leader>a <action>(HideAllWindows)
@@ -56,20 +64,28 @@ nmap <leader>x <action>(CloseEditor)
 nmap <leader>. <action>(NextSplitter)
 nmap <leader>n <action>(PrevSplitter)
 nmap <leader>r <action>(Run)
-nmap <leader>d <action>(GotoDeclaration)
+nmap gd <action>(GotoDeclaration)
+"nmap <leader>d <action>(GotoDeclaration)
 nmap <leader>s <action>(GotoSuperMethod)
-nmap <leader>i <action>(GotoImplementation)
-nmap <leader>u <action>(FindUsages)
+nmap gi <action>(GotoImplementation)
+"nmap <leader>i <action>(GotoImplementation)
+nmap gr <action>(FindUsages)
+"nmap <leader>u <action>(FindUsages)
 nmap <leader>h <action>(Back)
 nmap <leader>l <action>(Forward)
 nmap <leader>j <action>(PreviousTab)
+nmap <leader>j <action>(PreviousTab)
 nmap <leader>k <action>(NextTab)
-nmap <leader>f <action>(SelectInProjectView)
-nmap <leader>c <action>(RenameElement)
+nmap <leader>e <action>(SelectInProjectView)
+"nmap <leader>f <action>(SelectInProjectView)
+nmap <leader>ra <action>(RenameElement)
+"nmap <leader>c <action>(RenameElement)
+nmap <leader>D <action>(GotoTypeDeclaration)
 nmap <leader>t <action>(ExpressionTypeInfo)
-nmap <leader>e <action>(GotoNextError)
+"nmap <leader>e <action>(GotoNextError)
 nmap <leader>z <action>(ReformatCode)
-nmap <leader>m <action>(RecentFiles)
+nmap <leader>fo <action>(RecentFiles)
+"nmap <leader>m <action>(RecentFiles)
 nmap <leader>, <action>(GotoClass)
 nmap <leader>y <action>(CollapseRegion)
 nmap <leader>o <action>(ExpandRegion)
@@ -78,9 +94,8 @@ nmap <leader>ws <action>(SplitHorizontally)
 nmap <leader>wv <action>(SplitVertically)
 nmap <leader>wd <action>(ToggleDistractionFreeMode)
 nmap <leader>wz <action>(ToggleZenMode)
-nmap <leader>ff <action>(ToggleFullScreen)
+" nmap <leader>ff <action>(ToggleFullScreen)
 
 " Find more examples here:
 " https://www.cyberwizard.io/posts/the-ultimate-ideavim-setup/
 " https://jb.gg/share-ideavimrc
-
