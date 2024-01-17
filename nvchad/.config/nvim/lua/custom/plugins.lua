@@ -1,4 +1,4 @@
-local overrides = require("custom.configs.overrides")
+local overrides = require "custom.configs.overrides"
 
 ---@type NvPluginSpec[]
 local plugins = {
@@ -16,7 +16,7 @@ local plugins = {
   -- override plugin configs
   {
     "williamboman/mason.nvim",
-    opts = overrides.mason
+    opts = overrides.mason,
   },
 
   {
@@ -47,6 +47,16 @@ local plugins = {
     end,
   },
 
+  {
+    "glacambre/firenvim",
+
+    -- Lazy load firenvim
+    -- Explanation: https://github.com/folke/lazy.nvim/discussions/463#discussioncomment-4819297
+    lazy = not vim.g.started_by_firenvim,
+    build = function()
+      vim.fn["firenvim#install"](0)
+    end,
+  },
   -- To make a plugin not be loaded
   -- {
   --   "NvChad/nvim-colorizer.lua",
