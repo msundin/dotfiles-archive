@@ -1,10 +1,13 @@
 ### OPEN PROGRAMS ###
-# open new Alacritty terminal
-cmd - return : open -n /Applications/Alacritty.app 
+# open new iTerm2 terminal
 # alt - c : osascript /Users/msundin2/dev/scripts/new-alacritty-window.scpt
+# open terminal
 
 # ctrl - c : skhd --key "cmd - c"
 # ctrl - v : skhd --key "cmd - v"
+# ctrl - z : skhd --key "cmd - z"
+# ctrl - f : skhd --key "cmd - f"
+cmd - return : open -n /Applications/Alacritty.app 
 
 #tell application "Brave Browser"
 #    make new window
