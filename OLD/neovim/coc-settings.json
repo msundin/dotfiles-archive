@@ -1,0 +1,21 @@
+// Note: For Linux, not MacOS
+{
+  "languageserver": {
+    "ccls": {
+      "command": "ccls",
+      "filetypes": ["c", "cpp", "h", "cuda", "objc", "objcpp"],
+      "rootPatterns": [".ccls", "compile_commands.json", ".vim/", ".git/", ".hg/"],
+      "initializationOptions": {
+         "cache": {
+           "directory": ".ccls-cache"
+         },
+         "highlight": { 
+           "lsRanges" : true 
+         }
+       }
+    }
+  },
+  "coc.preferences.hoverTarget": "float",
+  "suggest.floatEnable": true,
+  "python.jediEnabled": false
+}
