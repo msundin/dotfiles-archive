@@ -1,3 +1,5 @@
+require "custom.configs.firenvim"
+
 -- local autocmd = vim.api.nvim_create_autocmd
 
 -- Auto resize panes when resizing nvim window
@@ -6,8 +8,6 @@
 --   command = "tabdo wincmd =",
 -- })
 -------------------------------------------------------
-
-
 
 -- vim.api.nvim_set_keymap('n', 'gr', '<cmd>Telescope lsp_references<cr>', { noremap = true, silent = true })
 
@@ -54,7 +54,7 @@
 --     -- Jumps to the definition of the type symbol
 --     bufmap('n', 'go', '<cmd>lua vim.lsp.buf.type_definition()<cr>')
 --
---     -- Lists all the references 
+--     -- Lists all the references
 --     bufmap('n', 'gr', '<cmd>Telescope lsp_references<cr>')
 --
 --     -- Displays a function's signature information
