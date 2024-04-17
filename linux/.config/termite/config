@@ -11,7 +11,7 @@ cursor_blink = system
 cursor_shape = block
 dynamic_title = true
 filter_unmatched_urls = true
-font = DejaVuSansMono Nerd Font 10
+font = RobotoMono Nerd Font 10
 geometry = 480x280
 icon_name = terminal
 modify_other_keys = false
@@ -26,34 +26,26 @@ highlight = #30343e
 
 [colors]
 
-# https://draculatheme.com/
-# https://github.com/dracula/xresources/blob/master/Xresources
-# special
-foreground=#f8f8f2
-cursor=#f8f8f2
-background=#282a36
-# black
-color0=#000000
-color8=#4d4d4d
-# red
-color1=#ff5555
-color9=#ff6e67
-# green
-color2=#50fa7b
-color10=#5af78e
-# yellow
-color3=#f1fa8c
-color11=#f4f99d
-# blue
-color4=#caa9fa
-color12=#caa9fa
-# magenta
-color5=#ff79c6
-color13=#ff92d0
-# cyan
-color6=#8be9fd
-color14=#9aedfe
-# white
-color7=#bfbfbf
-color15=#e6e6e6
+# https://git.io/nord
+foreground=#d8dee9
+background=#2e3440
+#cursor=#d8dee9
+cursor=rgb(216,222,233,0.8)
 
+color0=#3b4252
+color1=#bf616a
+color2=#a3be8c
+color3=#ebcb8b
+color4=#81a1c1
+color5=#b48ead
+color6=#88c0d0
+color7=#e5e8f0
+
+color8=#4c566a
+color9=#bf616a
+color10=#a3be8c
+color11=#ebcb8b
+color12=#81a1c1
+color13=#b48ead
+color14=#8fbcbb
+color15=#eceff4
