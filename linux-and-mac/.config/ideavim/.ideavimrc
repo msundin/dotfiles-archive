@@ -4,7 +4,7 @@
 "" See all available commands
 " :actionlist
 
-set scrolloff=10
+set scrolloff=5
 set incsearch
 set hlsearch
 nnoremap <esc> :noh<return><esc>
@@ -46,15 +46,18 @@ nmap zk O<Esc>j
 
 nmap <leader>fo <action>(RecentFiles)
 "nmap <leader>m <action>(RecentFiles)
-nmap <leader>ff <action>(GotoClass)
-vmap <leader>ff <action>(GotoClass)
-nmap <leader>fw <action>(SearchEverywhere)
-vmap <leader>fw <action>(SearchEverywhere)
+"nmap <leader>ff <action>(GotoClass)
+"vmap <leader>ff <action>(GotoClass)
+nmap <leader>ff <action>(SearchEverywhere)
+vmap <leader>ff <action>(SearchEverywhere)
+nmap <leader>fw <action>(FindInPath)
+vmap <leader>fw <action>(FindInPath)
 nmap [d <action>(MethodUp)
 nmap ]d <action>(MethodDown)
 nmap <leader>/ <action>(CommentByLineComment)
 vmap <leader>/ <action>(CommentByLineComment)
-"vmap <leader>f <action>(ExtractFunction)
+nmap <leader>fe <action>(ExtractFunction)
+vmap <leader>fe <action>(ExtractFunction)
 nmap <leader>gb <action>(Annotate)
 nmap <leader>gt <action>(RecentChangedFiles)
 nmap <leader>x <action>(CloseEditor)
@@ -81,6 +84,7 @@ nmap ge <action>(GotoNextError)
 
 
 nmap <leader>e <action>(SelectInProjectView)
+vmap <leader>e <action>(SelectInProjectView)
 "nmap <leader>e <action>(GotoNextError)
 "nmap <leader>f <action>(SelectInProjectView)
 
