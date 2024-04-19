@@ -4,8 +4,9 @@ if vim.g.started_by_firenvim == true then
   local api = vim.api
   api.nvim_create_autocmd("BufEnter", {
     pattern = "*",
-    --command = "set lines = (20, box lines)",
-    command = "set lines=20",
+    command = "let &lines = max([5, &lines])"
+    -- command = "set lines=max(3, 5)",
+    -- command = "set lines= 20",
   })
 
   vim.g.firenvim_config.localSettings[".*"] = {
